@@ -1,5 +1,4 @@
-#pragma once
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <string>
 namespace ext
@@ -47,10 +46,10 @@ namespace ext
 	};
 
 	/*
-		Возвращает Юлианскую дату
+		Г‚Г®Г§ГўГ°Г Г№Г ГҐГІ ГћГ«ГЁГ Г­Г±ГЄГіГѕ Г¤Г ГІГі
 		https://ru.wikipedia.org/wiki/%D0%AE%D0%BB%D0%B8%D0%B0%D0%BD%D1%81%D0%BA%D0%B0%D1%8F_%D0%B4%D0%B0%D1%82%D0%B0
-		раздел "Вычисление номера юлианского дня (JDN) по дате григорианского календаря"
-		Тестовые данные					Ожидаемый результат
+		Г°Г Г§Г¤ГҐГ« "Г‚Г»Г·ГЁГ±Г«ГҐГ­ГЁГҐ Г­Г®Г¬ГҐГ°Г  ГѕГ«ГЁГ Г­Г±ГЄГ®ГЈГ® Г¤Г­Гї (JDN) ГЇГ® Г¤Г ГІГҐ ГЈГ°ГЁГЈГ®Г°ГЁГ Г­Г±ГЄГ®ГЈГ® ГЄГ Г«ГҐГ­Г¤Г Г°Гї"
+		Г’ГҐГ±ГІГ®ГўГ»ГҐ Г¤Г Г­Г­Г»ГҐ					ГЋГ¦ГЁГ¤Г ГҐГ¬Г»Г© Г°ГҐГ§ГіГ«ГјГІГ ГІ
 		1.12.2018					2458454
 		1.1.2018					2458120
 		1.6.2000					2451697
@@ -71,8 +70,8 @@ namespace ext
 	}
 
 	/*
-		Рассчитывает количество дней между двумя датами.
-		При реализвации используйте CountJND
+		ГђГ Г±Г±Г·ГЁГІГ»ГўГ ГҐГІ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г¤Г­ГҐГ© Г¬ГҐГ¦Г¤Гі Г¤ГўГіГ¬Гї Г¤Г ГІГ Г¬ГЁ.
+		ГЏГ°ГЁ Г°ГҐГ Г«ГЁГ§ГўГ Г¶ГЁГЁ ГЁГ±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ CountJND
 	*/
 	TimeDelta countDistance(Date from, Date to)
 	{
@@ -96,13 +95,13 @@ namespace ext
 		switch (month)
 		{
 		case Month::January:
-			return "january ";			
+			return "january ";
 		case Month::February:
 			return "february ";
 		case Month::March:
 			return "march ";
 		case Month::April:
-			return "april ";			
+			return "april ";
 		case Month::May:
 			return "may ";
 		case Month::June:
@@ -110,22 +109,22 @@ namespace ext
 		case Month::July:
 			return "july ";
 		case Month::August:
-			return"august ";			
+			return"august ";
 		case Month::September:
-			return "september ";			
+			return "september ";
 		case Month::October:
 			return "october ";
 		case Month::Novemver:
 			return "november ";
 		case Month::December:
-			return  "december ";			
+			return  "december ";
 		default:
 			return "";
 		}
 	}
 
 	/*
-		Выводит в консоль
+		Р’С‹РІРѕРґРёС‚ РІ РєРѕРЅСЃРѕР»СЊ
 	*/
 
 	void print(Month month, DateFormat format = DateFormat::MonthAsInt)
@@ -148,19 +147,24 @@ namespace ext
 		print(data.month, format);
 
 		std::cout << data.day;
-	}	
+	}
 
-	void print(TimeDelta delta);
+	/*void print(TimeDelta delta)
+	{
+		std::cout << delta ;
+
+	}*/
 
 
 
 
 	/*
-		Возвращает сезон (зима, весна, лето, осень) передаваемой даты
+		
+		Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃРµР·РѕРЅ (Р·РёРјР°, РІРµСЃРЅР°, Р»РµС‚Рѕ, РѕСЃРµРЅСЊ) РїРµСЂРµРґР°РІР°РµРјРѕР№ РґР°С‚С‹
 	*/
 	Season getSeason(Date date)
 	{
-		
+
 		if (static_cast<int>(date.month) < 3 || static_cast<int>(date.month) == 12)
 		{
 			return Season::Winter;
@@ -173,19 +177,35 @@ namespace ext
 		{
 			return Season::Summer;
 		}
-		else 
+		else
 		{
 			return Season::Autumn;
 		}
-		
 	}
 	Season getSeason(Month month)
 	{
-		getSeason(month);		
+		
+
+		if (static_cast<int>(month) < 3 || static_cast<int>(month) == 12)
+		{
+			return Season::Winter;
+		}
+		else if (static_cast<int>(month) > 2 && static_cast<int>(month) < 6)
+		{
+			return Season::Spring;
+		}
+		else if (static_cast<int>(month) > 5 && static_cast<int>(month) < 9)
+		{
+			return Season::Summer;
+		}
+		else
+		{
+			return Season::Autumn;
+		}
 	}
 
 	/*
-		Написать перегрузку для следующих логических операторов
+		РќР°РїРёСЃР°С‚СЊ РїРµСЂРµРіСЂСѓР·РєСѓ РґР»СЏ СЃР»РµРґСѓСЋС‰РёС… Р»РѕРіРёС‡РµСЃРєРёС… РѕРїРµСЂР°С‚РѕСЂРѕРІ
 	*/
 	bool operator == (const Date lhs, const Date rhs)
 	{
@@ -198,23 +218,68 @@ namespace ext
 		return !(lhs == rhs);
 
 	}
-	bool operator < (const Date lhs, const Date rhs);
-	bool operator <= (const Date lhs, const Date rhs);
-	bool operator > (const Date lhs, const Date rhs);
-	bool operator >= (const Date lhs, const Date rhs);
+	bool operator < (const Date lhs, const Date rhs)
+	{
+		if (lhs.year == rhs.year)
+		{
+			if (lhs.month == rhs.month)
+			{
+				return lhs.day < rhs.day;
+			}
+			else
+			{
+				return lhs.month < rhs.month;
+			}
+		}
+		else
+			return lhs.year < rhs.year;
+		
+
+
+	}
+
+	
+	bool operator <= (const Date lhs, const Date rhs)
+	{
+	
+		return (lhs < rhs)|| (lhs == rhs);
+	}
+	bool operator > (const Date lhs, const Date rhs)
+	{
+		return !(lhs <= rhs);
+	}
+	bool operator >= (const Date lhs, const Date rhs)
+	{
+		return !(lhs < rhs);
+	}
+	
 
 	/*
-		Написать перегрузку для следующих арифметических операторомв
+		РќР°РїРёСЃР°С‚СЊ РїРµСЂРµРіСЂСѓР·РєСѓ РґР»СЏ СЃР»РµРґСѓСЋС‰РёС… Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёС… РѕРїРµСЂР°С‚РѕСЂРѕРјРІ
 	*/
 	Date operator + (const Date date, const TimeDelta delta);
+
 	Date operator + (const TimeDelta delta, const Date date);
 	Date operator + (const TimeDelta delta, const TimeDelta date);
 	Date operator - (const Date date, const TimeDelta delta);
 	Date operator - (const TimeDelta delta, const Date date);
 	Date operator - (const TimeDelta delta, const TimeDelta date);
 
-	TimeDelta operator * (const TimeDelta delta, int multiplier);
-	TimeDelta operator * (int multiplier, const TimeDelta delta);
-	TimeDelta operator / (const TimeDelta delta, int multiplier);
-	TimeDelta operator / (int multiplier, const TimeDelta delta);
+	/*TimeDelta operator * (const TimeDelta delta, int multiplier)
+	{
+		return delta * multiplier;
+	}
+
+	TimeDelta operator * (int multiplier, const TimeDelta delta)
+	{
+		return multiplier * delta;
+	}
+	TimeDelta operator / (const TimeDelta delta, int multiplier)
+	{
+		return delta / multiplier;
+	}
+	TimeDelta operator / (int multiplier, const TimeDelta delta)
+	{
+		return multiplier / delta;
+	}*/
 }
