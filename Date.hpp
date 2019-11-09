@@ -108,7 +108,7 @@ namespace ext
 
 	/*-----Часть для домашнего задания №4-----*/
 
-	/*TimeDelta operator ++ (TimeDelta& delta);
+	TimeDelta operator ++ (TimeDelta& delta);
 	
 	TimeDelta operator ++ (TimeDelta& delta, int);
 		
@@ -120,8 +120,7 @@ namespace ext
 	Date operator ++ (Date& delta, int);
 
 	Date operator -- (Date& delta);
-	Date operator -- (Date& delta, int);*/
-
+	Date operator -- (Date& delta, int);
 	/*
 		Меняет даты местами
 	*/
