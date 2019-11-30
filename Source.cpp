@@ -1,5 +1,5 @@
 #include<iostream>
-#include "Header.hpp"
+#include "CharString.hpp"
 
 
 using namespace std;
@@ -17,6 +17,12 @@ int main()
 	s2->nextSymbol = s3;
 
 	append(ptr, 'l');
+	append(ptr, 'o');
 	print(ptr);
+
+
+	removeChars(ptr, 2, 3);
+	print(ptr); // heo
+	cout << endl;
 	
 }
