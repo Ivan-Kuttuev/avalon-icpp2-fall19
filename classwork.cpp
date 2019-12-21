@@ -19,14 +19,14 @@ Point operator * (int mult, Point point)
 	return point * mult;
 }
 
-// перегрузка оператора вывода
+// ГЇГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  ГўГ»ГўГ®Г¤Г 
 ostream& operator << (ostream& out, Point point)
 {
 	out << point.x << " " << point.y;
 	return out;
 }
 
-// перегрузка оператора ввода
+// ГЇГҐГ°ГҐГЈГ°ГіГ§ГЄГ  Г®ГЇГҐГ°Г ГІГ®Г°Г  ГўГўГ®Г¤Г 
 istream& operator >> (istream& in, Point& point)
 {
 	in >> point.x >> point.y;
@@ -35,8 +35,8 @@ istream& operator >> (istream& in, Point& point)
 
 int main()
 {
-	ifstream fileData("pointsdata.txt", iostream::app);
-	if (!fileData.is_open())	// проверка успешности открытия файла
+	ifstream fileData("pointsdata.txt");
+	if (!fileData.is_open())	// ГЇГ°Г®ГўГҐГ°ГЄГ  ГіГ±ГЇГҐГёГ­Г®Г±ГІГЁ Г®ГІГЄГ°Г»ГІГЁГї ГґГ Г©Г«Г 
 	{
 		cout << "Cannot open file" << endl;
 		return 1;
@@ -46,7 +46,7 @@ int main()
 	ofstream fileForPoints;
 	fileForPoints.open("points.txt", iostream::ate);
 
-	if (!fileForPoints.is_open())	// проверка успешности открытия файла
+	if (!fileForPoints.is_open())	// ГЇГ°Г®ГўГҐГ°ГЄГ  ГіГ±ГЇГҐГёГ­Г®Г±ГІГЁ Г®ГІГЄГ°Г»ГІГЁГї ГґГ Г©Г«Г 
 	{
 		cout << "Cannot open file" << endl;
 		return 1;
