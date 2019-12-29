@@ -17,13 +17,13 @@ int main()
 		add();
 		break;
 	case 2:
-		//edit();
+		edit();
 		break;
 	case 3:
 		find();
 		break;
 	case 4:
-		//view_list();
+		view_list();
 		break;
 	case 5:
 		show_statistics();
